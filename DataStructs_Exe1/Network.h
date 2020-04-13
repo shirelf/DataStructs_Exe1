@@ -11,11 +11,11 @@ class Network
 public:
 	int computers;
 	int pairs;
-	int* pairsArray;
+	vector< pair <int, int> >* pairsArray;
 
 	Network();
 
-	Network(int computers, int pairs, int* pairsArray);
+	Network(int computers, int pairs, vector< pair <int, int> > * pairsArray);
 	~Network();
 };
 #endif

@@ -7,7 +7,7 @@ Network::Network()
 }
 
 
-Network::Network(int computers, int pairs, int* pairsArray)
+Network::Network(int computers, int pairs, vector< pair <int, int> >* pairsArray)
 {
 	this->computers = computers;
 	this->pairs = pairs;
