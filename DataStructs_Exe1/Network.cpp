@@ -7,11 +7,13 @@ Network::Network()
 }
 
 
-Network::Network(int computers, int pairs, vector< pair <int, int> >* pairsArray)
+Network::Network(int computers, int pairs, int * pairsArrayFrists, int* pairsArraySeconds)
 {
 	this->computers = computers;
 	this->pairs = pairs;
-	this->pairsArray = pairsArray;
+	this->pairsArrayFrists = pairsArrayFrists;
+	this->pairsArraySeconds = pairsArraySeconds;
+
 }
 
 Network::~Network()
