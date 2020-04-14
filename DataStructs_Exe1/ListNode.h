@@ -1,6 +1,7 @@
 #ifndef __LISTNODE_H
 #define __LISTNODE_H
 #include <stdlib.h>
+#include <iostream>
 
 using namespace std;
 class ListNode
