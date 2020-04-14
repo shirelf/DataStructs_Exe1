@@ -1,16 +1,13 @@
-#pragma once
 #include "ListNode.h"
-
 class List
 {
 private:
-	ListNode * root;
-
+	ListNode head,tail;
+	int size;
 public:
+	
 	List();
 	~List();
-	void MakeEmpty();
-	void IsEmpty();
 	
 };
 

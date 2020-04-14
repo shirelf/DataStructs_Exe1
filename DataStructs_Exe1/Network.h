@@ -3,20 +3,20 @@
 
 #include <vector>;
 #include <iostream>;
-#include "List.h";
 
 using namespace std;
 
 class Network
 {
 public:
-	int computersCount;
+	int computers;
 	int pairs;
-	vector< pair <int, int> >* pairsArray;
+	int* pairsArrayFrists;
+	int* pairsArraySeconds;
 
 	Network();
 
-	Network(int computersCount, int pairs, vector< pair <int, int> > * pairsArray);
+	Network(int computers, int pairs, int * pairsArrayFrists, int* pairsArraySeconds);
 	~Network();
 };
 #endif

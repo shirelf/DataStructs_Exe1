@@ -7,18 +7,12 @@ Network::Network()
 }
 
 
-Network::Network(int computersCount, int pairs, vector< pair <int, int> >* pairsArray)
+Network::Network(int computers, int pairs, int * pairsArrayFrists, int* pairsArraySeconds)
 {
-	List *networkListArray = new List[computersCount];
-
-	for (int i = 0; i < pairs; i++) {
-		
-	}
-
-	this->computersCount = computersCount;
+	this->computers = computers;
 	this->pairs = pairs;
-	this->pairsArray = pairsArray;
-
+	this->pairsArrayFrists = pairsArrayFrists;
+	this->pairsArraySeconds = pairsArraySeconds;
 
 }
 
