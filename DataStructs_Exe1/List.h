@@ -18,18 +18,7 @@ public:
 		MakeEmpty();
 	}
 
-	void MakeEmpty() {
-		ListNode<T> * current = head;
-		ListNode<T> * next;
-
-		while (current != nullptr) {
-			next = current->GetNext();
-			free(current);
-			current = next;
-		}
-
-		size = 0;
-	}
+	void MakeEmpty();
 
 	bool IsEmpty() {
 		return head == nullptr;
