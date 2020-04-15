@@ -15,7 +15,7 @@ public:
 	List() {}
 
 	~List() {
-		MakeEmpty();
+		//MakeEmpty();
 	}
 
 	void MakeEmpty();

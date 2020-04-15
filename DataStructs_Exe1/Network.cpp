@@ -9,7 +9,7 @@ Network::Network()
 
 Network::Network(int computersCount, int connectionsCount, int * fromCopmutersArray, int * toComputersArray)
 {
-	this->computerNetworksArray = new List<int>[computersCount];
+	this->computerNetworksArray = new List<int>[computersCount]();
 	this->computersCount = computersCount;
 	this->pairs = connectionsCount;
 	this->pairsArrayFrists = fromCopmutersArray;
@@ -26,3 +26,4 @@ void Network::Init() {
 		computerNetworksArray[pairsArrayFrists[i]].Insert(pairsArraySeconds[i]);
 	}
 }
+
