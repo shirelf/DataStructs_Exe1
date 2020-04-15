@@ -2,21 +2,23 @@
 #define __NETWORK_H
 
 #include <vector>;
-#include <iostream>;
-
+#include "List.h";
 using namespace std;
 
 class Network
 {
-public:
-	int computers;
+private:
+	int computersCount;
 	int pairs;
 	int* pairsArrayFrists;
 	int* pairsArraySeconds;
+	List<int> * computerNetworksArray;
 
+public:
 	Network();
 
 	Network(int computers, int pairs, int * pairsArrayFrists, int* pairsArraySeconds);
 	~Network();
+	void Init();
 };
 #endif

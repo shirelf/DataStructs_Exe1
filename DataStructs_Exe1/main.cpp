@@ -1,9 +1,10 @@
-#include <stdlib.h>
 #include <time.h>
-#include <iostream>
+#include <string>
 #include <vector>
-using namespace std;
+#include <iostream>
+#include "List.h";
 #include "Network.h";
+
 
 void FindAccessible(int computer, vector<int> accessibleList, char *colors, Network *network)
 {
@@ -40,6 +41,25 @@ void main()
 	
 
 }
+
+
+//using namespace std;
+//void main(){
+//	// Testing the list
+//	List<string> * strings = new List<string>();
+//	strings->Insert("first node");
+//	strings->Insert("second node");
+//	ListNode<string> * first = strings->First();
+//	strings->InsertAfter(*first, "1.5 node");
+//	
+//	ListNode<string> * itr = strings->First();
+//
+//	while (itr != nullptr) {
+//		cout << itr->GetValue() << "\n";
+//		itr = itr->GetNext();
+//	}
+//	delete strings;
+//}
 
 
 

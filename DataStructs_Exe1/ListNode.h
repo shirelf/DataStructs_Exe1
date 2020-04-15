@@ -3,26 +3,58 @@
 #include <stdlib.h>
 
 using namespace std;
+
+template <typename T>
 class ListNode
 {
 
 private:
-	int values;
-	ListNode * next;
+	T value;
+	ListNode * next = nullptr;
+	ListNode * prev = nullptr;
 
 public:
-	ListNode(int values, ListNode * next) {
-		this->values = values;
+	ListNode(T value, ListNode * next, ListNode * prev) {
+		this->value = value;
 		this->next = next;
+		this->prev = prev;
 	}
 
-	~ListNode();
+	~ListNode() {
+		if (next != nullptr) prev->SetNext(next);
+		if (prev != nullptr) next->SetPrev(prev);
+	}
 
-	void insertAfter(ListNode *newNode);
+	void InsertAfter(ListNode<T> * newNode) {
+		newNode->next = next;
+		next = newNode;
+	}
 	
+	ListNode * DeleteAfter() {
+		ListNode * temp = next;
+		if (next == nullptr) return nullptr;
+		next = temp->next;
+		return temp;
+	}
+	
+	T GetValue() {
+		return value;
+	}
+	
+	ListNode * GetNext() {
+		return next;
+	}
+	
+	void SetNext(ListNode<T> * nextNode) {
+		next = nextNode;
+	}
 
-private:
-	int computer;
-	ListNode* next;
+	ListNode * GetPrev() {
+		return prev;
+	}
+
+	void SetPrev(ListNode<T> * prevNode) {
+		prev = prevNode;
+	}
 };
 #endif
