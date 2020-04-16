@@ -6,6 +6,21 @@ Network::Network()
 {
 }
 
+int Network::getPairs()
+{
+	return pairs;
+}
+
+int * Network::getPairsArrayFrists()
+{
+	return pairsArrayFrists;
+}
+
+int * Network::getPairsArraySeconds()
+{
+	return pairsArraySeconds;
+}
+
 
 Network::Network(int computersCount, int connectionsCount, int * fromCopmutersArray, int * toComputersArray)
 {
@@ -26,4 +41,5 @@ void Network::Init() {
 		computerNetworksArray[pairsArrayFrists[i]].Insert(pairsArraySeconds[i]);
 	}
 }
+
 

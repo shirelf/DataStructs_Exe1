@@ -4,43 +4,33 @@
 #include <iostream>
 #include "List.h";
 #include "Network.h";
+#include "ListArray.h";
 
 
-//void FindAccessible(int computer, vector<int> accessibleList, char *colors, Network *network)
-//{
-//	
-//	colors[computer - 1] = 'b';//colors array begins from 0, computer 1 is in place 0 in the array
-//	accessibleList.push_back(computer);
-//	for (int i = 0; i < network->pairs; i++)
-//		if (network->pairsArrayFrists[i] == computer)
-//			if (colors[network->pairsArraySeconds[i]]== 'w')
-//				FindAccessible(network->pairsArraySeconds[i], accessibleList, colors, network);
-//
-//}
 
-//void main()
-//{
-//	//TODO: cin, cout, receive the details below from the user
-//	int countComputers = 5;
-//	int pairs = 5;
-//	int *pairsArrayFirsts = new int[pairs] { 1, 2, 3, 4, 5};
-//	int *pairsArraySeconds = new int[pairs] { 2, 3, 4, 5, 1};
-//
-//	
-//	vector<int> accessibleList;
-//	
-//	//int* accessibleList= new int[countComputers];//static base array 
-//
-//	char *colors = new char[countComputers];
-//	for(int i=0 ; i < countComputers ; i++)// initialize all computers
-//		colors[i] = 'w';
-//	
-//	Network network(countComputers,pairs, pairsArrayFirsts, pairsArraySeconds); // create the network
-//	
-//	FindAccessible(1, accessibleList, colors, &network);
-//	
-//
-//}
+
+ListArray * FindAccessibleRec(int chosenComputerId, Network &network, char *colors, ListArray *&accessibleList)
+{
+	colors[chosenComputerId - 1] = 'b';//the colors array began in 0
+	accessibleList->insertAccesibleToList(chosenComputerId);//
+	for (int i = 0; i < network.getPairs(); i++)
+		if (network.getPairsArrayFrists()[i] == chosenComputerId)
+			if (colors[network.getPairsArraySeconds()[i]-1] == 'w')
+				FindAccessibleRec(network.getPairsArraySeconds()[i], network, colors, accessibleList);
+	return accessibleList;
+}
+
+ListArray * buildAccessibleList(int comuptersCount, int chosenComputerId, Network &network)
+{
+	ListArray *accessibleList = new ListArray();
+	accessibleList->makeEmpty(comuptersCount);
+	char *colors = new char[comuptersCount];//change to boolean?
+	for (int i = 0; i < comuptersCount; i++)
+		colors[i] = 'w';
+	FindAccessibleRec(chosenComputerId, network, colors, accessibleList);
+	return accessibleList;
+}
+
 
 void main() {
 	int comuptersCount;
@@ -48,7 +38,7 @@ void main() {
 	int * fromCoumptersArray;
 	int * toComputersArray;
 
-	cout << "Welcome to the find accessiable network project\n";
+	cout << "Welcome to the find accessible network project\n";
 	
 	cout << "Please enter how many computers are in the network:\n";
 	cin >> comuptersCount;
@@ -67,10 +57,20 @@ void main() {
 		cout << "Please enter to which computer connection number " << (i + 1) << " is\n";
 		cin >> toComputersArray[i];
 	}
-
+	
+	
 	Network computersNetwork(comuptersCount, connectionsCount, fromCoumptersArray, toComputersArray);
 	computersNetwork.Init();
+
+
+	int chosenComputerId;
+	cout << "Please enter the computer id you want to make an accessible list to it:\n";
+	cin >> chosenComputerId;
+
+	ListArray *accessibleList= buildAccessibleList(comuptersCount, chosenComputerId, computersNetwork);
+	accessibleList->printLIst();
 }
+
 
 
 //using namespace std;
