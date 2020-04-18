@@ -16,6 +16,9 @@ private:
 
 public:
 	Network();
+	int getPairs();
+	int *getPairsArrayFrists();
+	int *getPairsArraySeconds();
 
 	Network(int computers, int pairs, int * pairsArrayFrists, int* pairsArraySeconds);
 	~Network();

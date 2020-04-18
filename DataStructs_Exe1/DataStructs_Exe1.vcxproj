@@ -145,6 +145,8 @@
   <ItemGroup>
     <ClInclude Include="ArrayList.h" />
     <ClInclude Include="List.h" />
+    <ClInclude Include="ListArray.h" />
+    <ClInclude Include="ListArrayNode.h" />
     <ClInclude Include="ListNode.h" />
     <ClInclude Include="Network.h" />
     <ClInclude Include="Stack.h" />
@@ -152,6 +154,8 @@
   <ItemGroup>
     <ClCompile Include="ArrayList.cpp" />
     <ClCompile Include="List.cpp" />
+    <ClCompile Include="ListArray.cpp" />
+    <ClCompile Include="ListArrayNode.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Network.cpp" />
     <ClCompile Include="Stack.cpp" />
