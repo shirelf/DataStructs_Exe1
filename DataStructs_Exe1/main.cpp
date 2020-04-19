@@ -20,10 +20,11 @@ ListArray * FindAccessible(int chosenComputerId, Network &network, char *colors,
 
 	while (!S.IsEmpty()) {
 		Curr = S.Pop();
-		colors[Curr.getChosenComputerId() - 1] = 'b';//the colors array began in 0
-		accessibleList->insertAccesibleToList(Curr.getChosenComputerId());//
-
-		for(int i = 0 ; i < network.getPairs() ; i++)
+		if (colors[Curr.getChosenComputerId() - 1] == 'w') {
+			colors[Curr.getChosenComputerId() - 1] = 'b';
+			accessibleList->insertAccesibleToList(Curr.getChosenComputerId());//
+		}
+		for(int i = network.getPairs()-1 ; i >= 0; i--)
 			if (network.getPairsArrayFrists()[i] == Curr.getChosenComputerId())
 				if (colors[network.getPairsArraySeconds()[i] - 1] == 'w') {
 					S.Push(Curr);
@@ -37,8 +38,8 @@ ListArray * FindAccessible(int chosenComputerId, Network &network, char *colors,
 
 ListArray * FindAccessibleRec(int chosenComputerId, Network &network, char *colors, ListArray *&accessibleList)
 {
-	colors[chosenComputerId - 1] = 'b';//the colors array began in 0
-	accessibleList->insertAccesibleToList(chosenComputerId);//
+	colors[chosenComputerId - 1] = 'b';
+	accessibleList->insertAccesibleToList(chosenComputerId);
 
 	for (int i = 0; i < network.getPairs(); i++)
 		if (network.getPairsArrayFrists()[i] == chosenComputerId)
@@ -52,7 +53,7 @@ ListArray * buildAccessibleList(int comuptersCount, int chosenComputerId, Networ
 {
 	ListArray *accessibleList = new ListArray();
 	accessibleList->makeEmpty(comuptersCount);
-	char *colors = new char[comuptersCount];//change to boolean?
+	char *colors = new char[comuptersCount];
 
 	for (int i = 0; i < comuptersCount; i++)
 		colors[i] = 'w';
@@ -65,7 +66,7 @@ ListArray * buildAccessibleList2(int comuptersCount, int chosenComputerId, Netwo
 {
 	ListArray *accessibleList = new ListArray();
 	accessibleList->makeEmpty(comuptersCount);
-	char *colors = new char[comuptersCount];//change to boolean?
+	char *colors = new char[comuptersCount];
 
 	for (int i = 0; i < comuptersCount; i++)
 		colors[i] = 'w';
@@ -75,7 +76,7 @@ ListArray * buildAccessibleList2(int comuptersCount, int chosenComputerId, Netwo
 }
 
 
-int main() {
+void main() {
 	int comuptersCount;
 	int connectionsCount;
 	int * fromCoumptersArray;
@@ -109,35 +110,18 @@ int main() {
 	int chosenComputerId;
 	//cout << "Please enter the computer id you want to make an accessible list to it:\n";
 	cin >> chosenComputerId;
-
+	if (chosenComputerId < 1 || chosenComputerId > comuptersCount)
+	{
+		cout << "no such computer "<<chosenComputerId<<"\n";
+		exit(1);
+	}
 	ListArray *accessibleList= buildAccessibleList(comuptersCount, chosenComputerId, computersNetwork);
 	accessibleList->printLIst();
 
 	ListArray *accessibleList2 = buildAccessibleList2(comuptersCount, chosenComputerId, computersNetwork);
 	accessibleList2->printLIst();
 
-	return 1;
+
 }
-
-
-
-//using namespace std;
-//void main(){
-//	// Testing the list
-//	List<string> * strings = new List<string>();
-//	strings->Insert("first node");
-//	strings->Insert("second node");
-//	ListNode<string> * first = strings->First();
-//	strings->InsertAfter(*first, "1.5 node");
-//	
-//	ListNode<string> * itr = strings->First();
-//
-//	while (itr != nullptr) {
-//		cout << itr->GetValue() << "\n";
-//		itr = itr->GetNext();
-//	}
-//	delete strings;
-//}
-
 
 
