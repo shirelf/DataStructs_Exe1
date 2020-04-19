@@ -25,7 +25,7 @@ ListArray * FindAccessible(int chosenComputerId, Network &network, char *colors,
 			accessibleList->insertAccesibleToList(Curr.getChosenComputerId());//
 		}
 
-		for(int i = 0 ; i < network.getPairs() ; i++)
+		for(int i = network.getPairs() - 1; i >= 0 ; i--)
 			if (network.getPairsArrayFrists()[i] == Curr.getChosenComputerId())
 				if (colors[network.getPairsArraySeconds()[i] - 1] == 'w') {
 					S.Push(Curr);
