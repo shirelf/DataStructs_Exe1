@@ -77,13 +77,13 @@ void ListArray::deleteAfter(int prevoiusIndex)
 
 void ListArray::printLIst()
 {
-	cout << "size: " << size << "\n"; 
-	cout << "headFree: " << headFree << "\n";
-	cout << "headList: " << headList << "\n";
-	cout << "lastDataIndex: " << lastDataIndex << "\n";
-	cout << "the epicenter:" << list[0].computerId << "\n";
+	//cout << "size: " << size << "\n"; 
+	//cout << "headFree: " << headFree << "\n";
+	//cout << "headList: " << headList << "\n";
+	//cout << "lastDataIndex: " << lastDataIndex << "\n";
+	//cout << "the epicenter:" << list[0].computerId << "\n";
 
-	for (int i = 1; i < size; i++)
+	for (int i = 0; i < size; i++)
 		cout << "access # " << i <<": " <<list[i].computerId << "\n";
 
 }

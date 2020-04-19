@@ -20,8 +20,10 @@ ListArray * FindAccessible(int chosenComputerId, Network &network, char *colors,
 
 	while (!S.IsEmpty()) {
 		Curr = S.Pop();
-		colors[Curr.getChosenComputerId() - 1] = 'b';//the colors array began in 0
-		accessibleList->insertAccesibleToList(Curr.getChosenComputerId());//
+		if (colors[Curr.getChosenComputerId() - 1] == 'w') {
+			colors[Curr.getChosenComputerId() - 1] = 'b';//the colors array began in 0
+			accessibleList->insertAccesibleToList(Curr.getChosenComputerId());//
+		}
 
 		for(int i = 0 ; i < network.getPairs() ; i++)
 			if (network.getPairsArrayFrists()[i] == Curr.getChosenComputerId())
