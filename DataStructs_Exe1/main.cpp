@@ -8,6 +8,8 @@
 #include "Stack.h"
 #include "ItemType.h"
 
+using namespace std;
+
 ListArray * FindAccessible(int chosenComputerId, Network &network, char *colors, ListArray *&accessibleList) {
 	//ListArray * accessibleList = new ListArray();
 
