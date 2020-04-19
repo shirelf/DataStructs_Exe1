@@ -21,7 +21,6 @@ int * Network::getPairsArraySeconds()
 	return pairsArraySeconds;
 }
 
-
 Network::Network(int computersCount, int connectionsCount, int * fromCopmutersArray, int * toComputersArray)
 {
 	this->computerNetworksArray = new List<int>[computersCount]();

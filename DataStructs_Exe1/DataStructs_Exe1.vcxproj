@@ -143,16 +143,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ArrayList.h" />
+    <ClInclude Include="ItemType.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="ListArray.h" />
     <ClInclude Include="ListArrayNode.h" />
     <ClInclude Include="ListNode.h" />
     <ClInclude Include="Network.h" />
     <ClInclude Include="Stack.h" />
+    <ClInclude Include="StackNode.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ArrayList.cpp" />
     <ClCompile Include="List.cpp" />
     <ClCompile Include="ListArray.cpp" />
     <ClCompile Include="ListArrayNode.cpp" />

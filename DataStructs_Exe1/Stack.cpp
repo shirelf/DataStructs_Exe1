@@ -1,52 +1,53 @@
-//#include "Stack.h"
-//
-//
-//
-//Stack::Stack()
-//{
-//	top = NULL;
-//}
-//
-//
-//Stack::~Stack()
-//{
-//	MakeEmpty();
-//}
-//
-//void Stack::MakeEmpty()
-//{
-//	ListNode<T> *temp;
-//	while (top != NULL) {
-//		temp = top;
-//		top = top->next;//GetNext...
-//		delete temp;
-//	}
-//}
-//
-//bool Stack::IsEmpty()
-//{
-//	return (top==NULL);
-//}
-//
-//
-//void Stack::Push(ItemType * itemType)
-//{
-//	top = new ListNode(itemType, top);// need to change to Itemtype something... in ListNode
-//}
-//
-//ItemType * Stack::Pop()
-//{
-//	if (IsEmpty()) {
-//		cout << "Error: STACK UNDERFLOW\n";
-//		exit(1);
-//	}
-//	ListNode *temp = top;
-//	ItemType item = top->value;// need to change to Itemtype something... in ListNode
-//	delete temp;
-//	return(item);
-//}
-//
-//ItemType * Stack::Top()
-//{
-//	return top.getValue();//getter value
-//}
+#include "Stack.h"
+
+Stack::Stack()
+{
+	top = nullptr;
+}
+
+Stack::~Stack()
+{
+	MakeEmpty();
+}
+
+void Stack::MakeEmpty()
+{
+	StackNode * temp;
+
+	while (top != nullptr) {
+		temp = top;
+		top = top->GetNext();//GetNext...
+		delete temp;
+	}
+}
+
+bool Stack::IsEmpty()
+{
+	return (top == nullptr);
+}
+
+void Stack::Push(ItemType itemType)
+{
+	top = new StackNode(itemType, top);// need to change to Itemtype something... in ListNode
+}
+
+ItemType Stack::Pop()
+{
+	if (IsEmpty()) {
+		std::cout << "Error: STACK UNDERFLOW\n";
+		exit(1);
+	}
+	
+	StackNode * temp = top;
+	ItemType item = top->GetItem();// need to change to Itemtype something... in ListNode
+	top = top->GetNext();
+	temp->SetNext(nullptr);
+	delete temp;
+
+	return item;
+}
+
+ItemType Stack::Top()
+{
+	return top->GetItem();//getter value
+}
